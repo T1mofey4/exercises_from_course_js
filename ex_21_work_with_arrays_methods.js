@@ -8,7 +8,7 @@ const funds = [
 ];
 
 function getPositiveIncomeAmount(data) {
-    let res = data.map(sum => sum.amount),
+    let res = data.map(num => num.amount),
         result = res.filter(item => item > 0);
     return result.reduce((sum, element) => {
             return sum + element;
@@ -17,27 +17,32 @@ function getPositiveIncomeAmount(data) {
 
 console.log(getPositiveIncomeAmount(funds));
 
-let res = funds.map(sum => sum.amount);
-console.log(res);
+function getTotalIncomeAmount(arr) {
+    let res = arr.map(num => num.amount);
+    let chekArr = [];
 
-let chekArr = [];
-let negNum = res.map(item => item <0);
-console.log(negNum);
+ //записываем все отрицательные числа в checkArr;
 
-// function getTotalIncomeAmount(funds) {
-//     if()
-// }
+    for (let i of res) {
+        if (i < 0) {
+            chekArr.push(i);
+        } 
+    }
 
-// let check = res.every(num => res < 0);
+//проверка, если массив chekArr не пустой, то суммируем все элементы массива res, если пустой, то запустить функцию getPositiveIncomeAmount.
 
+    if(chekArr !== 0) {
+        return res.reduce((sum, elem) => {
+            return sum + elem;
+        },0);
+    } else {
+       return getPositiveIncomeAmount(arr);
+    }
 
-// let result = res.filter(item => item > 0);
-// console.log(result);
+    
+}
 
-// // let sum = result.reduce((sum, element) => {
-// //     return sum + element;
-// // }, 0);
+console.log(getTotalIncomeAmount(funds));
 
-// // console.log(sum);
 
 
