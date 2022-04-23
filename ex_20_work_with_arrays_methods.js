@@ -28,7 +28,7 @@ function showListOfFilms(arr) {
 
 console.log(showListOfFilms(films));
 
-//добавление елемента id к каждобу объекту массива;
+//добавление елемента id к каждому объекту массива;
 
 function setFilmsIds(arr) {
     return arr.map((film, i) => {
