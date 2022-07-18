@@ -17,3 +17,4 @@ const add1 = function(a) {return a + 1},
 const composeWithArgs = (...fns) => fns.reduceRight((f, g) => (...args) => g(f(...args)));
 
 console.log(composeWithArgs(add1, addA113)(1, 2, 3));
+
